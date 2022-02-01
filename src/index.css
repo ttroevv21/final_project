@@ -1,13 +1,386 @@
+* {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-weight: 700;
+  box-sizing:border-box
+}
+html {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F2DBD2 !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Кнопки */
+
+.btn_custom {
+  font-family: "Alegreya Sans SC", sans-serif;
+  padding: 11px;
+  border-radius: 5px;
+  background-color: black;
+  border-width: 1px;
+  font-weight: 700;
+  color: #fff;
+  transition: opacity 300ms linear;
+}
+
+.btn_custom:hover {
+  opacity: 0.8;
+  transform: inherit;
+  /* transition-duration: 0.3s; */
+}
+
+.admin-btn {
+  font-family: "Alegreya Sans SC", sans-serif;
+  padding: 11px;
+  border-radius: 5px;
+  background-color: #fff;
+  border-width: 1px;
+  font-weight: 700;
+  color: black;
+  transition: opacity 300ms linear;
+}
+
+.admin-btn:hover {
+  opacity: 0.8;
+  transform: inherit;
+}
+
+/* Поиск */
+
+.search {
+  display: table;
+}
+.search input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 28px;
+  min-width: 0;
+  padding: 0;
+  z-index: 1;
+  position: relative;
+  line-height: 18px;
+  margin: 5px 0;
+  font-size: 14px;
+  -webkit-appearance: none;
+  font-family: "Mukta Malar";
+  transition: all 0.6s ease;
+  cursor: pointer;
+  color: black;
+}
+.search input + div {
+  position: relative;
+  height: 28px;
+  width: 100%;
+  margin: -28px 0 0 0;
+}
+.search input + div svg {
+  display: block;
+  position: absolute;
+  height: 28px;
+  width: 160px;
+  right: 0;
+  top: 0;
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+  stroke-dashoffset: 271.908;
+  stroke-dasharray: 59 212.908;
+  transition: all 0.6s ease;
+}
+
+.search input:not(:placeholder-shown),
+.search input:focus {
+  width: 160px;
+  padding: 0 4px;
+  cursor: text;
+}
+.search input:not(:placeholder-shown) + div svg,
+.search input:focus + div svg {
+  stroke-dasharray: 150 212.908;
+  stroke-dashoffset: 300;
+}
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dribbble {
+  position: fixed;
+  display: block;
+  right: 24px;
+  bottom: 24px;
+}
+.dribbble img {
+  display: block;
+  width: 76px;
+}
+
+/* logo */
+.logo {
+  width: 75px;
+}
+
+
+/* navbar */
+.navbar-custom {
+  background-color: #fff !important;
+  box-shadow: 0px 1px 15px 0px rgba(0,0,0,0.57);
+}
+
+.margin-right {
+  margin-right: 2vh;
+}
+
+.login-btn {
+  background-color: white ;
+  border: none;
+  width: 20px;
+}
+.navbar-icon {
+  width: 4vh;
+  padding-bottom: .3vh;
+}
+
+.navbar-icon:hover {
+  opacity: 0.75;
+  transition-duration: .3s;
+}
+
+.icon-div {
+  display: flex;
+
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* add page */
+
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+.group input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.group input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+.group label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.group input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:black; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+.group input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:black; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:black; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background: black; }
+  to 	{ width:0; background:transparent; }
+}
+
+.add-container {
+  width: 90% !important;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff !important;
+}
+.add-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+}
+.add-container h2 {
+  margin-bottom: 2%;
+}
+
+/* poster on main page */
+/* .poster {
+  background-color: #f3f3f5;
+  display: flex;
+  align-items: center;
+} */
+
+.poster {
+  /* position: relative; */
+  width: 100%;
+  /* padding-top: 56.25%; */
+  /* margin-bottom: 125vh; */
+  /* border-bottom: 0.5px solid black; */
+  box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.45);
+}
+
+.poster img {
+  /* position: absolute; */
+  /* left: 0;
+  right: 0;
+  width: 100%;
+  height: auto; */
+  /* object-fit: cover; */
+  width: 100%;
+}
+
+/* carousel */
+
+/* .makeStyles-item-2 div div {
+  display: flex;
+  align-items: stretch;
+} */
+
+.product-image {
+  height: 100%; 
+  width: 20vw;
+  margin: 0 auto;
+}
+
+.carousel-image {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  /* object-position: bottom;  */
+}
+
+.makeStyles-root-1 {
+  /* height: auto; */
+  /* margin-bottom: 10%; */
+  /* margin-top: 6vh; */
+}
+
+
+.MuiPaper-root {
+  margin-bottom: 30px;
+  /* display: inline-block; */
+  /* vertical-align: middle; */
+}
+
+.MuiPaper-elevation {
+  
+}
+
+.carousel-card {
+  width: 40vw !important;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.MuiPaper-root button {
+  margin: 2vh !important;
+}
+
+.makeStyles-indicators-4 {
+  margin-top: 3em !important;
+}
+
+/* .makeStyles-item-2 {
+  margin-bottom: 4vh;
+} */
+
+.carousel-title {
+  font-size: 8vw;
+  margin-left: 6vw;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* ---------------- */
+
+.admin-panel {
+  width: 100%;
+}
+
+
+
