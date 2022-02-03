@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { ClientContext } from "../contexts/ClientProvider";
 import ProductCard from "../components/ProductCard";
 import MakeupPagination from "../components/MakeupPagination";
+import SearchProduct from "../components/SearchProduct";
 
 const MakeUpProductsPage = () => {
   const { getProducts, products1 } = useContext(ClientContext);
@@ -17,6 +18,8 @@ const MakeUpProductsPage = () => {
 
   return (
     <div>
+      <SearchProduct />
+
       <Grid container spacing={5}>
         {products1.map((item) => {
           if (item.purpose === "МАКИЯЖ") {

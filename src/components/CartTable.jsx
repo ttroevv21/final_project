@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { TableFooter } from "@mui/material";
 import { ClientContext } from "../contexts/ClientProvider";
+import { Link } from "react-router-dom";
 
 export default function CartTable({ cart, changeCountCartProduct }) {
   const { deleteProductInCart } = React.useContext(ClientContext);
@@ -67,6 +68,11 @@ export default function CartTable({ cart, changeCountCartProduct }) {
             <TableCell>Total price: </TableCell>
             <TableCell>{cart.totalPrice}</TableCell>
           </TableRow>
+          <Link to="/payment">
+            <button className="admin-btn" style={{ cursor: "pointer" }}>
+              ОПЛАТИТЬ
+            </button>
+          </Link>
         </TableFooter>
       </Table>
     </TableContainer>

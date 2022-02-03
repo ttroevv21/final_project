@@ -170,7 +170,7 @@ const ClientProvider = (props) => {
 
   useEffect(() => {
     if (state.products) {
-      state.products.map((item) => {
+      state.products.forEach((item) => {
         if (item.purpose === "МАКИЯЖ") {
           arr1.push(item);
         }
@@ -181,7 +181,7 @@ const ClientProvider = (props) => {
       setPosts1(arr1);
       setPosts2(arr2);
     }
-  }, [state.products, arr1, arr2]);
+  }, [state.products]);
 
   const indexOfLastPost = postsPerPage * currentPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -211,6 +211,8 @@ const ClientProvider = (props) => {
         totalProductsCount1: totalProductsCount1,
         totalProductsCount2: totalProductsCount2,
         currentPage: currentPage,
+        posts1: posts1,
+        posts2: posts2,
       }}
     >
       {props.children}

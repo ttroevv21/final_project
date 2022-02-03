@@ -6,31 +6,11 @@ import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRound
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 
 const MyCarousel = () => {
-  const {
-    getProducts,
-    products,
-    addAndDeleteProductInCart,
-    checkProductInCart,
-  } = useContext(ClientContext);
+  const { getProducts, posts1, posts2 } = useContext(ClientContext);
 
   useEffect(() => {
     getProducts();
   }, []);
-
-  if (!products) {
-    return <h2>Loading...</h2>;
-  }
-
-  let purp1 = [];
-  let purp2 = [];
-  products.map((item) => {
-    if (item.purpose === "УХОД ЗА ЛИЦОМ") {
-      purp1.push(item);
-    }
-    if (item.purpose === "МАКИЯЖ") {
-      purp2.push(item);
-    }
-  });
 
   return (
     <>
@@ -42,11 +22,11 @@ const MyCarousel = () => {
           <ArrowBackIosNewRoundedIcon sx={{ color: "#fff", fontSize: 15 }} />
         }
       >
-        {purp1.map((item) => (
-          <>
+        {posts1.map((item) => (
+          <React.Fragment key={item.id}>
             <p className="carousel-title">{item.purpose}</p>
-            <Item key={item.id} item={item} />
-          </>
+            <Item item={item} />
+          </React.Fragment>
         ))}
       </Carousel>
       <Carousel
@@ -57,11 +37,11 @@ const MyCarousel = () => {
           <ArrowBackIosNewRoundedIcon sx={{ color: "#fff", fontSize: 15 }} />
         }
       >
-        {purp2.map((item) => (
-          <>
+        {posts2.map((item) => (
+          <React.Fragment key={item.id}>
             <p className="carousel-title">{item.purpose}</p>
-            <Item key={item.id} item={item} />
-          </>
+            <Item item={item} />
+          </React.Fragment>
         ))}
       </Carousel>
     </>
@@ -69,8 +49,9 @@ const MyCarousel = () => {
 };
 
 function Item(props) {
-  const { checkProductInCart, addAndDeleteProductInCart } =
+  const { checkProductInCart, addAndDeleteProductInCart, getProducts } =
     useContext(ClientContext);
+
   return (
     <Paper className="carousel-card">
       <p>{props.item.brand}</p>

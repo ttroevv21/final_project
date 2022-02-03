@@ -5,7 +5,7 @@ export const calcSubPrice = (cartProduct) => {
 export const calcTotalPrice = (products) => {
   let totalPrice = 0;
   products.forEach((item) => {
-    totalPrice += item.SubPrice;
+    totalPrice += item.subPrice;
   });
   return totalPrice;
 };

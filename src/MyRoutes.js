@@ -12,6 +12,7 @@ import AdminProvider from "./contexts/AdminProvider";
 import ClientProvider from "./contexts/ClientProvider";
 import FaceCareProductsPage from "./pages/FaceCareProductsPage";
 import MakeUpProductsPage from "./pages/MakeUpProductsPage";
+import MyFooter from "./components/MyFooter";
 
 const MyRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const MyRoutes = () => {
               <Route path="/faceCare" element={<FaceCareProductsPage />} />
               <Route path="/makeUp" element={<MakeUpProductsPage />} />
             </Routes>
+            <MyFooter />
           </BrowserRouter>
         </ClientProvider>
       </AdminProvider>
